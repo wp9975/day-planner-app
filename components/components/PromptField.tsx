@@ -6,7 +6,8 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
-import sendRequestToAi from '@/utils/sendRequestToAi'; // Assuming sendRequestToAi is in the same directory
+import sendRequestToAi from '@/utils/sendRequestToAi'; 
+import TasksTable from "./TasksTable";
 
 type Props = {}
 
@@ -40,8 +41,7 @@ const PromptField = (props: Props) => {
         </form>
         {aiResponse && (
           <div>
-            <Label>AI Response</Label>
-            <p>{aiResponse}</p>
+            <TasksTable response={aiResponse}/>
           </div>
         )}
       </CardContent>
