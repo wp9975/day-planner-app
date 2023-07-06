@@ -9,11 +9,13 @@ import { Textarea } from "@/components/ui/textarea"
 import sendRequestToAi from '@/utils/sendRequestToAi'; 
 import TasksTable from "./TasksTable";
 
-type Props = {}
+type Props = {
+
+}
 
 const PromptField = (props: Props) => {
   const [prompt, setPrompt] = useState('');
-  const [aiResponse, setAiResponse] = useState('');
+  const [aiResponse, setAiResponse] = useState(null);
 
   const handleInput = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
     setPrompt(event.target.value);
@@ -21,11 +23,11 @@ const PromptField = (props: Props) => {
 
   const submit = async () => {
     const response = await sendRequestToAi(prompt);
-    setAiResponse(response);
+    if(response) setAiResponse(response);
   }
 
   return (
-    <Card className="w-[50%]">
+    <Card className="w-full md:w-[75%] xl:w-[50%]">
       <CardHeader>
         <CardTitle>Write your prompt</CardTitle>
         <CardDescription>Describe what task have you today.</CardDescription>
