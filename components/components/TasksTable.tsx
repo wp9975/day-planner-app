@@ -2,7 +2,7 @@
 import React, { useEffect } from "react"
 import { useRouter } from "next/navigation"
 import { useTasks } from "@/context/TasksContext"
-import { printPdf } from "utils/printPdf"
+import { printPdf } from "@/utils/printPdf"
 
 import { Button } from "../ui/button"
 
