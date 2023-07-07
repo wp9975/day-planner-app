@@ -2,11 +2,11 @@ import axios from "axios"
 import { Configuration, OpenAIApi } from "openai"
 
 const OPENAI_API_URL = "https://api.openai.com/v1/chat/completions"
-const OPENAI_API_KEY = "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" // replace with your actual key
+
 
 const openai = new OpenAIApi(
   new Configuration({
-    apiKey: OPENAI_API_KEY,
+    apiKey: process.env.NEXT_PUBLIC_OPENAI_API_KEY,
   })
 )
 

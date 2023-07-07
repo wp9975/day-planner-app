@@ -13,10 +13,13 @@ export const TasksContext = createContext<TasksContextType>({
 
 export const TasksProvider = ({ children }) => {
   const [tasksArray, setTasksArray] = useState(() => {
-    const storedTasks = localStorage.getItem("tasks")
-
-    return storedTasks ? JSON.parse(storedTasks) : []
-  })
+    if (typeof window !== 'undefined') {
+      const storedTasks = localStorage.getItem("tasks");
+      return storedTasks ? JSON.parse(storedTasks) : [];
+    } else {
+      return [];
+    }
+  });
 
   useEffect(() => {
     localStorage.setItem("tasks", JSON.stringify(tasksArray))

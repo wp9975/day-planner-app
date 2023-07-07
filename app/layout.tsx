@@ -9,6 +9,8 @@ import { SiteHeader } from "@/components/site-header"
 import { TailwindIndicator } from "@/components/tailwind-indicator"
 import { ThemeProvider } from "@/components/theme-provider"
 
+require('dotenv').config()
+
 
 export const metadata: Metadata = {
   title: {
